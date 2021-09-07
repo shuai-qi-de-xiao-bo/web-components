@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web Components</title>
+  <script src="userCard.js"></script>
+</head>
+
+<body>
+  
+</body>
+<script>
+  const list = ["a", "b", "c", "d", "e"];
+  const fragment = document.createDocumentFragment();
+  list.forEach(item => {
+    let userCard = document.createElement("user-card");
+    userCard.setAttribute('image', 'grace.jpg');
+    userCard.setAttribute('name', item);
+    userCard.setAttribute('email', item);
+
+    let span = document.createElement("span");
+    span.innerText = item;
+    span.setAttribute("slot", "button-text");
+    userCard.append(span);
+    fragment.append(userCard);
+  });
+  document.body.append(fragment);
+</script>
+</html>
